@@ -1,0 +1,24 @@
+[debug] [2021-09-09T10:11:13.230Z] ----------------------------------------------------------------------
+[debug] [2021-09-09T10:11:13.231Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\callc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-09-09T10:11:13.232Z] CLI Version:   9.16.6
+[debug] [2021-09-09T10:11:13.232Z] Platform:      win32
+[debug] [2021-09-09T10:11:13.232Z] Node Version:  v16.6.2
+[debug] [2021-09-09T10:11:13.242Z] Time:          Thu Sep 09 2021 13:11:13 GMT+0300 (Israel Daylight Time)
+[debug] [2021-09-09T10:11:13.242Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-09-09T10:11:13.245Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-09-09T10:11:13.265Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-09-09T10:11:13.265Z] > authorizing via signed-in user (mixelburg.play@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\callc\WebstormProjects\final_app
+
+[debug] [2021-09-09T10:11:13.881Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-09-09T10:11:13.881Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}

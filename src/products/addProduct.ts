@@ -1,18 +1,20 @@
 import {admin, db} from "../admin";
 import express from "express";
 import IProduct, {ProductRequest} from "./IProduct";
+import AuthorisedRequest from "../auth/AuthorisedRequest";
 
 
-const addProduct = async (req: ProductRequest, res: express.Response) => {
+const addProduct = async (req: ProductRequest & AuthorisedRequest, res: express.Response) => {
     console.log(req.body)
 
     const data: IProduct = {
         name: req.body.name,
         description: req.body.description,
-        owner: req.body.owner,
+        owner: req.user.username,
         price: req.body.price,
         color: req.body.color,
-        amount: req.body.amount
+        amount: req.body.amount,
+        createdAt: admin.firestore.Timestamp.fromDate(new Date())
     }
 
     const createdProduct = await db.collection('products').add(data)

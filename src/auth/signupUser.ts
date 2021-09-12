@@ -3,8 +3,8 @@ import {admin, db} from "../admin";
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Joi from "joi";
+import defaultCartData from "../cart/defaultCartData";
 const auth = getAuth();
-
 
 const signupSchema = Joi.object({
     username: Joi.string().required(),
@@ -45,6 +45,7 @@ const signupUser = async (req: any, res: express.Response) => {
     };
 
     await db.doc(`/users/${newUser.username}`).set(userCredentials);
+    await db.doc(`/cart/${newUser.username}`).set(defaultCartData);
 
     console.log(`[+] Created new user ${JSON.stringify(userCredentials, null, 4)}`)
     res.status(201).json({token})

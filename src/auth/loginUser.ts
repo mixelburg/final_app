@@ -11,14 +11,13 @@ const loginSchema = Joi.object({
 })
 
 const loginUser = async (req: any, res: express.Response) => {
-
     const result = loginSchema.validate(req.body)
 
     if (result.error) {
         throw result.error
     }
 
-    const data = await signInWithEmailAndPassword(auth, req.email, req.password)
+    const data = await signInWithEmailAndPassword(auth, req.body.email, req.body.password)
     const token = await data.user.getIdToken()
     res.json({ token })
 }

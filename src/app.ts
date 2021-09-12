@@ -13,6 +13,14 @@ import loginUser from "./auth/loginUser";
 import signupUser from "./auth/signupUser";
 import checkAuth from "./auth/checkAuth";
 import getUserDetail from "./auth/getUserDetail";
+import deleteProduct from "./products/deleteProduct";
+import editProduct from "./products/editProduct";
+import getAllProducts from "./products/getAllProducts";
+import addToCart from "./cart/addToCart";
+import getCart from "./cart/getCart";
+import getProductById from "./products/getProductById";
+import removeFromCart from "./cart/removeFromCart";
+import clearCart from "./cart/clearCart";
 
 const app = express();
 const port = 5000;
@@ -21,8 +29,16 @@ app.use(express.json())
 app.use(cors())
 
 
-app.post("/products", validator.body(ProductSchema) ,ash(addProduct))
+app.post("/products", ash(checkAuth), validator.body(ProductSchema) ,ash(addProduct))
+app.delete("/products/:id", ash(checkAuth), ash(deleteProduct))
+app.put("/products/:id", ash(checkAuth), validator.body(ProductSchema), ash(editProduct))
+app.get("/products", ash(checkAuth), ash(getAllProducts))
+app.get("/products/:id", ash(checkAuth), ash(getProductById))
 
+app.post("/cart", ash(checkAuth), ash(addToCart))
+app.get("/cart", ash(checkAuth), ash(getCart))
+app.put("/cart", ash(checkAuth), ash(removeFromCart))
+app.delete("/cart", ash(checkAuth), ash(clearCart))
 
 app.post("/login", ash(loginUser))
 app.post("/signup", ash(signupUser))

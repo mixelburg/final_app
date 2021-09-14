@@ -23,7 +23,7 @@ import removeFromCart from "./cart/removeFromCart";
 import clearCart from "./cart/clearCart";
 
 const app = express();
-const port = 5000;
+const port = 11111;
 
 app.use(cors({
     origin: "http://localhost:3000"

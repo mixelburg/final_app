@@ -29,7 +29,11 @@ const addToCart = async (req: any, res: express.Response) => {
     if (index !== -1) {
         data.items[index].amount += req.body.amount
     } else {
-        data.items.push(req.body)
+        data.items.push({
+            ...req.body,
+            name: product.data().name,
+            price: product.data().price
+        })
     }
     data.total += req.body.amount * product.data().price
 

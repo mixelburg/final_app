@@ -9,6 +9,8 @@ const removeFromCartSchema = Joi.object({
 })
 
 const removeFromCart = async (req: any, res: express.Response) => {
+    console.log("REMOVING ITEM")
+
     const result = removeFromCartSchema.validate(req.body)
 
     if (result.error) {
@@ -26,16 +28,18 @@ const removeFromCart = async (req: any, res: express.Response) => {
 
     const index = data.items.findIndex(item => item.id === req.body.id && item.color === req.body.color)
     if (index !== -1) {
-        if (req.body.amount > data.items[index].amount)
+        if (req.body.amount > data.items[index].amount) {
             data.items[index].amount = 0
-        else
+        }
+        else {
             data.items[index].amount -= req.body.amount
+        }
         data.total -= req.body.amount * product.data().price
-        if (data.items[index].amount === 0)
+        if (data.items[index].amount === 0) {
             data.items.splice(index, 1)
+        }
     }
 
-    console.log(data.items)
     await doc.update(data)
     res.json({message: '[+] Updated successfully'});
 }

@@ -25,9 +25,7 @@ import clearCart from "./cart/clearCart";
 const app = express();
 const port = 11111;
 
-app.use(cors({
-    origin: "http://localhost:3000"
-}))
+app.use(cors())
 app.use(express.json())
 
 

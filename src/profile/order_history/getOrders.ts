@@ -8,7 +8,11 @@ const getOrders = async (req: AuthorisedRequest, res: express.Response) => {
 
     const orders = []
     data.forEach(order => {
-        orders.push(order.data())
+        orders.push({
+            id: order.id,
+            ...order.data(),
+            date: order.data().date.toDate().toLocaleString()
+        })
     })
 
     res.json(orders)

@@ -21,6 +21,8 @@ import getCart from "./cart/getCart";
 import getProductById from "./products/getProductById";
 import removeFromCart from "./cart/removeFromCart";
 import clearCart from "./cart/clearCart";
+import addOrder from "./profile/order_history/addOrder";
+import getOrders from "./profile/order_history/getOrders";
 
 const app = express();
 const port = 11111;
@@ -39,6 +41,9 @@ app.post("/cart", ash(checkAuth), ash(addToCart))
 app.get("/cart", ash(checkAuth), ash(getCart))
 app.put("/cart", ash(checkAuth), ash(removeFromCart))
 app.delete("/cart", ash(checkAuth), ash(clearCart))
+
+app.get("/order", ash(checkAuth), ash(getOrders))
+app.post("/order", ash(checkAuth), ash(addOrder))
 
 app.post("/login", ash(loginUser))
 app.post("/signup", ash(signupUser))
